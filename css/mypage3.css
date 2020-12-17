@@ -1,0 +1,64 @@
+#na {
+    background-color: #C557EB;
+    font-size: 12em;
+}
+
+
+
+
+.area {
+    margin-top: 100px;
+    margin: auto;
+    flex-wrap: wrap;
+    display: flex;
+}
+   
+.tab_class {
+    margin-top: 1px;
+    background-color: #d396e7;
+    width: 50%;
+    border-bottom:solid 1px black ;
+    height: 50px;
+    line-height: 50px;
+    font-size: 2em;
+    text-align: center;
+    display: block;
+    float: left;
+    order: -1;
+}
+   
+input[name="tab_name"] {
+    display: none;
+}
+
+input:checked + .tab_class {
+    border-bottom:solid 2px black ;
+}
+
+.content_class {
+    display: none;
+    width: 100%;
+}
+
+input:checked + .tab_class + .content_class {
+    display: block;
+}
+
+.title{
+    font-size: 1.5em;
+    margin-left: 100px;
+    margin-top: 20px;
+}
+.p{
+    font-size: 1.1em;
+    margin-left: 100px;
+    margin-top: 20px;
+}
+
+.box{
+    width: 80%;
+    background-color: aliceblue;
+    padding: 5px 10px;
+    margin: 30px auto;
+    border-radius: 8%;
+}
