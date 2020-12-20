@@ -1,0 +1,31 @@
+下取り価格(テキストボックス)
+車両登録画像（ファイル選択）
+出品ナンバー[番号] (テキストボックス）
+車台番号[20桁程度](テキストボックス）
+メーカー名[15文字程度](テキストボックス）
+車名[15文字程度] (テキストボックス）
+グレード[20文字程度](テキストボックス）
+排気量[4桁数値] (テキストボックス）
+年式[何年何月](テキストボックス）
+走行[? /6桁(km/マイル)](テキストボックス）
+走行距離の状態[実走行/走行不可]  (ラジオボタン)
+外装色[10桁+ツートンかどうか] (テキストボックス）
+内装色[10桁+外装色同様、カラー番号あると嬉しい](テキストボックス）
+車検有効期限[何年何月](テキストボックス）
+ミッション[フロア/コラム/ダッシュ/AT/MT(1桁)(ラジオボタン）]
+ボディタイプ(テキストボックス）
+形式[3桁-12桁] (テキストボックス）
+ページドア数[1桁] (テキストボックス）
+形状(ドア)[2桁](テキストボックス）
+乗車定員[2桁] (テキストボックス）
+駆動方式[2WD/4WD]（ラジオボタン）
+燃料[G/D]（ラジオボタン）
+修復歴[有無]（ラジオボタン）
+リサイクル料金[値段](テキストボックス）
+ハンドル[L/R] （ラジオボタン）
+輸入車[ディーラー/並行] （ラジオボタン）
+積載量[6桁kg] （テキストボックス）
+車歴[自家用事業用レンタカー](ラジオボタン）
+所有者歴(テキストボックス）owner_history3ページ冷房[WAC/AAC/AC/C/無] （ラジオボタン）air_conditioning/wac/aac/ac/c/nothingスマートキー[有無] （ラジオボタン）smart_key/existence/nothingサンルーフ[有無+10桁] （ラジオボタン）（テキストボックス）sunroof/existence/nothingエアバック[シングル/ダブル] （ラジオボタン）air_bag/single/doubleローダウン[有無] （ラジオボタン）lowdown/existence/nothing
+車両登録.md2020/7/312 / 3パワステ[有無] （ラジオボタン）power_steering/existence/nothingCD[有無] （ラジオボタン）cd/existence/nothing本革シート[有無] （ラジオボタン）genuine_leather_seats/existence/nothing禁煙車[有無] （ラジオボタン）smoking_car/existence/nothingパワーウィンドウ[有無] （ラジオボタン）power_window/existence/nothingMD[有無] （ラジオボタン）md/existence/nothing純正エアロパーツ[有無] （ラジオボタン）genuine_aero_parts/existence/nothingペット同乗[有無] （ラジオボタン）pet/existence/nothing集中ドアロック[有無] （ラジオボタン）centralized_door_lock/existence/nothingDVDビデオ[有無] （ラジオボタン）dvd/existence/nothing純正アルミホイール[有無] （ラジオボタン）genuine_aluminum_wheel/existence/nothing限定車[有無] （ラジオボタン）limited_car/existence/nothingABS[有無] （ラジオボタン）abs/existence/nothingテレビ[有無] （ラジオボタン）tv/existence/nothing横滑り防止装置[有無] （ラジオボタン）skidding/existence/nothing試乗、現車確認可能[有無] （ラジオボタン）test_drive/existence/nothingナビゲーション[有無] （ラジオボタン）navigation/existence/nothingトラクションコントロール[有無] （ラジオボタン）traction_control/existence/nothingETC[有無] （ラジオボタン）etc/existence/nothingバックカメラ[有無] （ラジオボタン）back_camera/existence/nothing寒冷地帯仕様車[有無] （ラジオボタン）cold_region/existence/nothingキーレスエントリー[有無] （ラジオボタン）keyless_entry/existence/nothing電動スライドドア[有無] （ラジオボタン）electric_sliding_door/existence/nothing福祉車両[有無] （ラジオボタン）welfare_vehicles/existence/nothingスペアタイヤ[有無] （ラジオボタン）spare_tire/existence/nothingジャッキ[有無] （ラジオボタン）jack/existence/nothing新車保証書[有無] （ラジオボタン）new_car_warranty/existence/nothing取扱説明書[有無] （ラジオボタン）instruction_manual/existence/nothingNOx期限[適用かどうか+何年何月何日まで] （ラジオボタン）（テキストボックス） noxメーター交換歴[交換改竄不明] （テキストボックス）meter_exchange_history室内シート[キズ/コゲ/コゲ穴/汚れ/破れ]（テキストボックス）indoor_seat/scratches/koge/koge_hole/dirt/tornリモコン有無[TVリモコン/ナビリモコン/エアコンリモコン/オーディオリモコン] （テキストボックス）remote_controller/tv_remo/navi_remo/air_remo/aud_remo/nothing4ページ評価点[S/6/5/4.5/4/3.5/3/2/1/R/現] (ラジオボタン）evaluation_points外装評価[A/B/C](ラジオボタン）exterior_evaluation内装評価[A/B/C/D/E] (ラジオボタン）interior_evaluation注意事項[テキスト] （テキストボックス）precautions検査期限[何年何月何日まで] （テキストボックス）inspection_deadline名変期限[何月何日まで] （テキストボックス）name_change_deadline出品ブロック[ファースト/ゴールデン/一般/売り切り/バントラ] （ラジオボタン）exhibition_block/first/colden/general/sold_out/bantra検査員[名前] （テキストボックス）inspector
+車両登録.md20
