@@ -1,0 +1,78 @@
+#na {
+    background-color: #C557EB;
+    font-size: 12em;
+}
+#sy {
+    border: black 1px solid;
+    object-fit: cover;
+    height: 180px;
+}
+#sya{
+    width: 180px;
+    height: 180px;
+    margin-left: -50px;
+    margin-top: -90px;
+    border: black 1px solid;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 50%;
+}
+
+#name{
+    font-size: 3em;
+    margin-top: 130px;
+    margin-left: 70px;
+}
+#mail{
+    font-size: 1.5em;
+    margin-left: 90px;
+}
+
+.area {
+    margin-top: 50px;
+    margin: auto;
+    flex-wrap: wrap;
+    display: flex;
+}
+   
+.tab_class {
+    width: 33%;
+    border-bottom:solid 1px black ;
+    height: 50px;
+    line-height: 50px;
+    font-size: 2em;
+    text-align: center;
+    display: block;
+    float: left;
+    order: -1;
+}
+   
+input[name="tab_name"] {
+    display: none;
+}
+
+input:checked + .tab_class {
+    border-bottom:solid 2px black ;
+}
+
+.content_class {
+    display: none;
+    width: 100%;
+}
+
+input:checked + .tab_class + .content_class {
+    display: block;
+}
+
+.p{
+    font-size: 1.5em;
+    margin-left: 100px;
+    margin-top: 80px;
+}
+
+.box{
+    margin: auto;
+    width: 80%;
+    border: cadetblue 1px solid;
+    padding: 30px 20px;
+    font-size: 1.3em;
+}
