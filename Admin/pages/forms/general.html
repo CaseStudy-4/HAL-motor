@@ -386,24 +386,6 @@
                   <p>General Elements</p>
                 </a>
               </li>
-              <li class="nav-item">
-                <a href="../forms/advanced.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Advanced Elements</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="../forms/editors.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Editors</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="../forms/validation.html" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Validation</p>
-                </a>
-              </li>
             </ul>
           </li>
           <li class="nav-item">
@@ -849,29 +831,26 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              <form>
+              <form id="addcar">
                 <div class="card-body">
                   <div class="form-group">
-                    <label for="exampleInputEmail1">出品ナンバー</label>
-                    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Exhibition number">
+                    <label for="ExhibitionNumber">出品ナンバー</label>
+                    <input type="text" class="form-control" id="ExhibitionNumber" placeholder="Exhibition number">
                   </div>
                   <div class="form-group">
-                    <label for="exampleInputPassword1">車体番号</label>
-                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Body number">
+                    <label for="BodyNumber">車体番号</label>
+                    <input type="text" class="form-control" id="BodyNumber" placeholder="Body number">
                   </div>
                   <div class="form-group">
                     <label for="exampleInputPassword1">グレード</label>
                     <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Grade">
                   </div>
-                  <div class="form-group">
-                    <label for="exampleInputFile">車両画像</label>
+                  <div class="form-group" id="CarImage">
+                    <label for="InputFile">車両画像</label>
                     <div class="input-group">
                       <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="exampleInputFile">
-                        <label class="custom-file-label" for="exampleInputFile">Choose file</label>
-                      </div>
-                      <div class="input-group-append">
-                        <span class="input-group-text">Upload</span>
+                        <input type="file" class="custom-file-input" id="InputFile">
+                        <label class="custom-file-label" for="InputFile">Choose file</label>
                       </div>
                     </div>
                   </div>
@@ -931,11 +910,20 @@
                       </div>
                     </div>
                   </div>
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">下取り価格</label>
+                    <div class="input-group mb-3">
+                      <div class="input-group-append">
+                        <span class="input-group-text">￥</span>
+                      </div>
+                      <input type="number" class="form-control">
+                    </div>
+                  </div>
                 </div>
                 <!-- /.card-body -->
 
                 <div class="card-footer">
-                  <button type="submit" class="btn btn-primary">Submit</button>
+                  <button type="button" class="btn btn-primary" id="carsubmit">Submit</button>
                 </div>
               </form>
             </div>
@@ -1472,10 +1460,12 @@
                       </div>
                     </div>
                   </div>
-
                 </form>
               </div>
               <!-- /.card-body -->
+              <div class="card-footer">
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </div>
             </div>
             <!-- /.card -->
 
@@ -1519,5 +1509,6 @@ $(function () {
   bsCustomFileInput.init();
 });
 </script>
+<script src="../../../js/addcar.js"></script>
 </body>
 </html>
