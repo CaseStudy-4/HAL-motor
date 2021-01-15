@@ -1,6 +1,7 @@
 $(function(){
 
   var carImageNum = 1;
+  var requestURL = "http://localhost:9000/car";
   // var sendJson = require('./halmotor.json');
   // var sendData = JSON.parse(sendJson);
   // console.log(sendData);
@@ -96,9 +97,54 @@ $(function(){
     }
 };
 
-  var sendData = JSON.parse(jsonData);
+//JSONにエンコード
+// var sendData = JSON.stringify(jsonData);
+// var sendData = JSON.parse(jsonData);
+// console.log(sendData);
 
-  console.log(sendData);
+var data = {
+  name: 'yonesho',
+  age: 22
+};
+
+
+  $("#carsubmit").on('click', function(){
+    // 通信実行
+    $.ajax({
+      type: "post",                // method = "POST"
+      url: requestURL,        // POST送信先のURL
+      data: JSON.stringify(jsonData),  // JSONデータ本体
+      contentType: 'application/json', // リクエストの Content-Type
+      dataType: "json",           // レスポンスをJSONとしてパースする
+    })
+    .done( (data) => {
+      let res = JSON.stringify(data);
+      alert(res);
+    })
+    .fail( (data) => {
+      alert(data);
+    });
+    /*
+      success: function(jsonData) {   // 200 OK時
+          // JSON Arrayの先頭が成功フラグ、失敗の場合2番目がエラーメッセージ
+          if (!jsonData[0]) {    // サーバが失敗を返した場合
+              alert("Transaction error. " + jsonData[1]);
+              return;
+          }
+          var data = JSON.parse(jsonData);
+          alert(data);
+          // 成功時処理
+          location.reload();
+      },
+      error: function() {         // HTTPエラー時
+          alert("Server Error. Pleasy try again later.");
+      },
+      complete: function() {      // 成功・失敗に関わらず通信が終了した際の処理
+        console.log('request finish');
+      }
+    });
+    */
+  });
 
   $("#carsubmit").on('click',function(){
     let exhibitionNumber = $('#ExhibitionNumber').val();
