@@ -2,9 +2,15 @@
 const serverPort = 9000;
 
 var express = require('express');
+const bodyParser = require('body-parser');
 var app = express();
 const http = require('http');
 const mysql = require('mysql');
+const cors = require('cors');
+
+// app.use(cors());
+
+app.use(cors({ origin: true, credentials: true }));
 
 /*
 *   database connection
@@ -29,6 +35,19 @@ connection.connect((error) => {
 */
 var server = app.listen(serverPort, function(){
   console.log("Node.js is listening to PORT:" + server.address().port);
+});
+
+/*
+*	POST request
+*/
+app.use(bodyParser.urlencoded({
+    extended: true
+}));
+app.use(bodyParser.json());
+app.post('/admin', function(req,res) {
+	console.log('post request!!');
+	console.log(req.body);
+	res.status(200).send(req.body);
 });
 
 /*
