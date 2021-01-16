@@ -38,6 +38,20 @@ var server = app.listen(serverPort, function(){
 });
 
 /*
+*		data number
+*/
+let num = 0;
+connection.query(
+	'SELECT COUNT(*) AS count FROM employee_info',
+	(error, results) => {
+
+		console.log(results[0].count);
+		num = results[0].count;
+	}
+)
+
+
+/*
 *	POST request
 */
 app.use(bodyParser.urlencoded({
@@ -47,7 +61,36 @@ app.use(bodyParser.json());
 app.post('/admin', function(req,res) {
 	console.log('post request!!');
 	console.log(req.body);
-	res.status(200).send(req.body);
+
+	let employee_id = 10001 + num;
+
+	let values = [
+		employee_id,
+		req.body.employee_name,
+		req.body.employee_mail,
+		req.body.employee_pass,
+		req.body.employee_phone
+	];
+	
+	connection.query(
+		'INSERT INTO employee_info(employee_id, employee_name, employee_mail, employee_pass, employee_phone, del_flg) VALUES(?, ?, ?, ?, ?, 0)', values,
+		(error, results) => {
+			if(error){
+				console.log('Error!!' + error.stack);
+				res.status(400).send({ msg: 'Error!!' });
+				return;
+			}
+			// console.log(results);
+
+			resData = {
+				'msg' : '登録完了'
+			}
+
+			res.status(200).send(JSON.stringify(resData));
+		}
+	)
+
+	// res.status(200).send(req.body);
 });
 
 /*
