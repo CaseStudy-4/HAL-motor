@@ -11,6 +11,9 @@ const cors = require('cors');
 // app.use(cors());
 
 app.use(cors({ origin: true, credentials: true }));
+app.use(bodyParser.urlencoded({
+	extended: true
+}));
 
 /*
 *   database connection
@@ -50,13 +53,60 @@ connection.query(
 	}
 )
 
+/*
+*		login request
+*/
+app.get('/admin/login', function(req, res){
+	res.sendFile(__dirname + '/view/login.html');
+});
+
+/*
+* 	login
+*/
+let testmail = 'bule.impulse1201@gmail.com';
+let testpass = '12345';
+let username = 'yonesho';
+/*
+passport.use(new LocalStrategy({
+		usernameField: 'email',
+		passwordField: 'password'
+	},
+	function(username, password, done){
+		return done(null, username);
+	}
+));
+*/
+var passport = require('passport')
+  , LocalStrategy = require('passport-local').Strategy;
+
+app.use(passport.initialize());
+
+passport.use(new LocalStrategy(
+  function(username, password, done) {
+    return done(null, username);
+  }
+));
+
+passport.serializeUser(function(user, done) {
+  done(null, username);
+});
+
+passport.deserializeUser(function(user, done) {
+  done(null, username);
+});
+
+
+app.post('/admin/login', passport.authenticate('local'),function(req, res){
+	console.log('login!!');
+	// console.log(req.body.email);
+	// console.log(req.body.password);
+	// res.status(200).send({'msg' : 'ログイン'});
+	// res.redirect('../Admin/index.html');
+});
 
 /*
 *	POST request
 */
-app.use(bodyParser.urlencoded({
-    extended: true
-}));
 app.use(bodyParser.json());
 app.post('/admin', function(req,res) {
 	console.log('post request!!');
