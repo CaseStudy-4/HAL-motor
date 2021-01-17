@@ -24,9 +24,9 @@
     <div class="card-body">
       <p class="login-box-msg">ログインしてください</p>
 
-      <form action="http://localhost:9000/admin/login" method="POST">
+      <form id="form" enctype="multipart/form-data" method="post" action="http://localhost:9000/admin/login">
         <div class="input-group mb-3">
-          <input type="email" class="form-control" placeholder="Email" name="username">
+          <input type="email" class="form-control" placeholder="Email" name="username" id="username">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-envelope"></span>
@@ -34,7 +34,7 @@
           </div>
         </div>
         <div class="input-group mb-3">
-          <input type="password" class="form-control" placeholder="Password" name="password">
+          <input type="password" class="form-control" placeholder="Password" name="password" id="password">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-lock"></span>
@@ -42,7 +42,7 @@
           </div>
         </div>
 
-        <button type="submit" class="btn btn-primary btn-block mb-3">Sign In</button>
+        <button type="submit" class="btn btn-primary btn-block mb-3" id="signup">Sign In</button>
       </form>
       <!-- /.social-auth-links -->
 
@@ -62,5 +62,6 @@
 <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- AdminLTE App -->
 <script src="../../dist/js/adminlte.min.js"></script>
+<script src="../../../js/adminlogin.js"></script>
 </body>
 </html>
