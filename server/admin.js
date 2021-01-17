@@ -63,27 +63,26 @@ app.get('/admin/login', function(req, res){
 /*
 * 	login
 */
-let testmail = 'bule.impulse1201@gmail.com';
-let testpass = '12345';
-let username = 'yonesho';
-/*
-passport.use(new LocalStrategy({
-		usernameField: 'email',
-		passwordField: 'password'
-	},
-	function(username, password, done){
-		return done(null, username);
-	}
-));
-*/
+let testmail = 'admin@hal.ac.jp';
+let testpass = 'admin';
+let username = 'Seima Yonesho';
 var passport = require('passport')
-  , LocalStrategy = require('passport-local').Strategy;
+	, LocalStrategy = require('passport-local').Strategy;
+var session = require('express-session');
 
 app.use(passport.initialize());
+app.use(session({ resave:false,saveUninitialized:false, secret: 'passport test' }));
+app.use(passport.session());
 
 passport.use(new LocalStrategy(
   function(username, password, done) {
-    return done(null, username);
+		if(username == testmail && password == testpass){
+			return done(null, username);
+		}
+    else {
+			console.log("login error")
+      return done(null, false, { message: 'ログインできませんでした' });
+		}
   }
 ));
 
@@ -100,7 +99,7 @@ app.post('/admin/login', passport.authenticate('local'),function(req, res){
 	console.log('login!!');
 	// console.log(req.body.email);
 	// console.log(req.body.password);
-	res.status(200).send({'msg' : 'ログイン'});
+	res.status(200).send({'username' : username});
 	// res.redirect('../Admin/index.html');
 });
 
