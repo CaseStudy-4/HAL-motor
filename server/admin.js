@@ -100,7 +100,7 @@ app.post('/admin/login', passport.authenticate('local'),function(req, res){
 	console.log('login!!');
 	// console.log(req.body.email);
 	// console.log(req.body.password);
-	// res.status(200).send({'msg' : 'ログイン'});
+	res.status(200).send({'msg' : 'ログイン'});
 	// res.redirect('../Admin/index.html');
 });
 
