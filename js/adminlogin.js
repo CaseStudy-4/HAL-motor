@@ -27,8 +27,9 @@ $(function(){
 			let res = JSON.stringify(data);
 			let obj = JSON.parse(res);
 			if(res){
-				alert('ようこそ！' + obj.username);
-				
+				// alert('ようこそ！' + obj.username);
+				window.sessionStorage.setItem(['username'],[obj.username]);
+				window.location.href = '../../index.html';
 			}
 			// alert(res);
 		})

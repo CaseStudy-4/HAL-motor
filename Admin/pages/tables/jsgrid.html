@@ -827,7 +827,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>jsGrid</h1>
+            <h1>ボディタイプ : セダン</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -843,7 +843,7 @@
     <section class="content">
       <div class="card">
         <div class="card-header">
-          <h3 class="card-title">jsGrid</h3>
+          <h3 class="card-title">車両一覧</h3>
         </div>
         <!-- /.card-header -->
         <div class="card-body">
@@ -895,11 +895,14 @@
         data: db.clients,
 
         fields: [
-            { name: "Name", type: "text", width: 150 },
-            { name: "Maker", type: "select", items: db.makers, valueField: "Id", textField: "Name" },
-            { name: "Address", type: "text", width: 200 },
-            { name: "Country", type: "select", items: db.countries, valueField: "Id", textField: "Name" },
-            { name: "Married", type: "checkbox", title: "Is Married" }
+            { name: "車名", type: "text", width: 200 },
+            { name: "メーカー", type: "select", items: db.makers, valueField: "Id", textField: "Name" },
+            { name: "ボディタイプ", type: "text", width: 150},
+            { name: "売出価格", type: "text", width: 150 },
+            { name: "年式", type: "text", width: 100 },
+            { name: "走行距離", type: "text", width: 150 },
+            // { name: "ミッション", type: "select", items: db.mission, valueField: "Id", textField: "Name" },
+            { name: "オークション状況", type: "select", items: db.auction, valueField: "Id", textField: "Name", width: 200}
         ]
     });
   });
