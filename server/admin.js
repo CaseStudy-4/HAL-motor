@@ -11,6 +11,9 @@ const cors = require('cors');
 // app.use(cors());
 
 app.use(cors({ origin: true, credentials: true }));
+app.use(bodyParser.urlencoded({
+	extended: true
+}));
 
 /*
 *   database connection
@@ -50,13 +53,59 @@ connection.query(
 	}
 )
 
+/*
+*		login request
+*/
+app.get('/admin/login', function(req, res){
+	res.sendFile(__dirname + '/view/login.html');
+});
+
+/*
+* 	login
+*/
+let testmail = 'admin@hal.ac.jp';
+let testpass = 'admin';
+let username = 'Seima Yonesho';
+var passport = require('passport')
+	, LocalStrategy = require('passport-local').Strategy;
+var session = require('express-session');
+
+app.use(passport.initialize());
+app.use(session({ resave:false,saveUninitialized:false, secret: 'passport test' }));
+app.use(passport.session());
+
+passport.use(new LocalStrategy(
+  function(username, password, done) {
+		if(username == testmail && password == testpass){
+			return done(null, username);
+		}
+    else {
+			console.log("login error")
+      return done(null, false, { message: 'ログインできませんでした' });
+		}
+  }
+));
+
+passport.serializeUser(function(user, done) {
+  done(null, username);
+});
+
+passport.deserializeUser(function(user, done) {
+  done(null, username);
+});
+
+
+app.post('/admin/login', passport.authenticate('local'),function(req, res){
+	console.log('login!!');
+	// console.log(req.body.email);
+	// console.log(req.body.password);
+	res.status(200).send({'username' : username});
+	// res.redirect('../Admin/index.html');
+});
 
 /*
 *	POST request
 */
-app.use(bodyParser.urlencoded({
-    extended: true
-}));
 app.use(bodyParser.json());
 app.post('/admin', function(req,res) {
 	console.log('post request!!');
