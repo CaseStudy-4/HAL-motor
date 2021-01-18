@@ -606,6 +606,7 @@ var server = app.listen(serverPort, function(){
             return;
         }
 
+        var results1 = new Array();
         for (let i = 0; i < results.length; i++) {
           var addData =
           { 
@@ -704,9 +705,10 @@ var server = app.listen(serverPort, function(){
         }
         let ind = 0;
         for (let i = 0; i < results.length; i++) {
-          let trade_in_price = results[i].car_info.trade_in_price;
+          let trade_in_price1 = results[i].car_info.trade_in_price * 1.1;
+          console.log(trade_in_price1);
           if(value1 != 0 && value2 != 0){
-            if(value1 <= trade_in_price && trade_in_price <= value2){
+            if(value1 <= trade_in_price1 && trade_in_price1 <= value2){
               var addData =
               { 
                 car_id : results[i].car_id,
@@ -800,12 +802,12 @@ var server = app.listen(serverPort, function(){
                   category_classification_number : results[i].car_info.category_classification_number
                 } 
               }
-              results[ind] = addData;
+              results1[ind] = addData;
               ind++;
             } 
           }
           else if(value1 == 0){
-            if(trade_in_price <= value2){
+            if(trade_in_price1 <= value2){
               var addData =
               { 
                 car_id : results[i].car_id,
@@ -899,12 +901,12 @@ var server = app.listen(serverPort, function(){
                   category_classification_number : results[i].car_info.category_classification_number
                 } 
               }
-              results[ind] = addData;
+              results1[ind] = addData;
               ind++;
             } 
           }
           else{
-            if(trade_in_price >= value1){
+            if(trade_in_price1 >= value1){
               var addData =
               { 
                 car_id : results[i].car_id,
@@ -998,13 +1000,13 @@ var server = app.listen(serverPort, function(){
                   category_classification_number : results[i].car_info.category_classification_number
                 } 
               }
-              results[ind] = addData;
+              results1[ind] = addData;
               ind++;
             } 
           }
              
         }
-        res.status(200).send(results);  
+        res.status(200).send(results1);  
       }
     );
   });
