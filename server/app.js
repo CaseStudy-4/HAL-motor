@@ -1181,3 +1181,41 @@ var server = app.listen(serverPort, function(){
       }
     );
   });
+
+  /* タイマー機能 
+      GET /timer
+      【リクエスト】
+      【レスポンス】
+      　200︓これからのオークションのjsonデータ
+  */
+  app.get('/timer', function(req, res) {      
+    connection.query(
+      'SELECT * FROM auction_info;',
+      (error, results) => {
+        if (error) {
+            console.log('error: ' + error.stack);
+            res.status(405).send({ message: 'Error' });
+            return;
+        }
+        var nowdate = new Date();
+        var results1 = new Array();
+        let ind = 0;
+        for (let i = 0; i < results.length; i++) {
+          if(nowdate.getTime() <= results[i].auction_date.getTime()){
+            var addData =
+          { 
+            auction_id : results[i].auction_id,
+            auction_name : results[i].auction_name,
+            auction_image : results[i].auction_image, 
+            auction_date : results[i].auction_date,
+            exhibition_block : results[i].exhibition_block
+          }
+          results1[ind] = addData;
+          ind++;
+          }
+        }
+        res.status(200).send(results1);
+       
+      }
+    );
+  });
