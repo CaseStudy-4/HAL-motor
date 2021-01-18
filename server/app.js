@@ -1142,63 +1142,42 @@ var server = app.listen(serverPort, function(){
   });
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
-
+  /* オークションログイン
+      GET /user_login/{userID}/{pass} 
+      【リクエスト】
+      Integer :userID
+      String :password
+      【レスポンス】
+        200︓ユーザー情報jsonデータ
+      データベース照合でユーザーがいない場合
+        201:{"入力内容に不備あり"}
+      信用がなかった場合
+        202:{"不可"}
+  */
+  app.get('/user_login/:userID/:pass', function(req, res) {      
+    connection.query(
+      'SELECT * FROM user_info WHERE user_id = ' + req.params.userID +' AND user_pass = ?;',req.params.pass,
+      (error, results) => {
+        if (error) {
+            console.log('error: ' + error.stack);
+            res.status(405).send({ message: 'Error' });
+            return;
+        }
+        /*個人信用情報機関に問い合わせ
+           var msg = XXXXXX(results[0].user_name,results[0].user_mail,results[0].zip_code,results[0].address,results[0].tel); 
+            msgには[true false]   が入ると仮定する   
+        */
+       　var msg = "true";
+        
+        if(results.length ==0){
+          res.status(201).send("入力内容に不備あり"); 
+        }
+        else if(msg=="true"){
+          res.status(200).send(results); 
+        }
+        else{
+          res.status(202).send("不可"); 
+        } 
+      }
+    );
+  });
