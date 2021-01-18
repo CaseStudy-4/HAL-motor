@@ -1199,60 +1199,6 @@ var server = app.listen(serverPort, function(){
 
 
 
-  app.get('/users/:id', (req, res) => {      
-    let values = [
-      req.params.id
-    ];
-    connection.query(
-      'SELECT * FROM t01_users WHERE id=?',values,
-      (error, results) => {
-        if (error) {
-            console.log('error connecting: ' + error.stack);
-            res.status(400).send({ message: 'Error!!' });
-            return;
-        }
-        console.log('get:/users/{:id}');
-        res.status(200);
-        res.send(results); 
-      }
-    );
-  });
-
-  app.delete('/users/:id', (req, res) => {      
-
-    connection.query(
-      "DELETE FROM t01_users WHERE id=?", req.params.id,
-      (error, results) => {
-        if (error) {
-            console.log('error connecting: ' + error.stack);
-            res.status(400).send({ message: 'Error!!' });
-            return;
-        }
-        console.log('delete:/users/{:id}');
-        res.send({ message: 'Success!!' });
-      }
-    );
-  });
-
-  app.put('/users/:id', (req, res) => {      
-    let values = [
-      req.params.email,
-      req.params.username,
-      req.params.password,
-      req.params.id
-    ];
-    connection.query(
-      "UPDATE t01_users SET email=?,username=?,password=? WHERE id=?;", values,
-      (error, results) => {
-        if (error) {
-            console.log('error connecting: ' + error.stack);
-            res.status(400).send({ message: 'Error!!' });
-            return;
-        }
-        console.log('put:/users/{:id}');
-        res.send({ message: 'Success!!' });
-      }
-    );
-  });
+  
 
 
