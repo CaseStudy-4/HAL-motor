@@ -827,7 +827,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>ボディタイプ : セダン</h1>
+            <h1></h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -886,24 +886,34 @@
 <script>
   $(function () {
     $("#jsGrid1").jsGrid({
-        height: "100%",
-        width: "100%",
+      height: "100%",
+      width: "100%",
 
-        sorting: true,
-        // paging: true,
+      sorting: true,
+      // paging: true,
 
-        data: db.clients,
+      data: db.clients,
 
-        fields: [
-            { name: "車名", type: "text", width: 200 },
-            { name: "メーカー", type: "select", items: db.makers, valueField: "Id", textField: "Name" },
-            { name: "ボディタイプ", type: "text", width: 150},
-            { name: "売出価格", type: "text", width: 150 },
-            { name: "年式", type: "text", width: 100 },
-            { name: "走行距離", type: "text", width: 150 },
-            // { name: "ミッション", type: "select", items: db.mission, valueField: "Id", textField: "Name" },
-            { name: "オークション状況", type: "select", items: db.auction, valueField: "Id", textField: "Name", width: 200}
-        ]
+      fields: [
+        { name: "車名", type: "text", width: 200 },
+        { name: "メーカー", type: "select", items: db.makers, valueField: "Id", textField: "Name" },
+        { name: "ボディタイプ", type: "text", width: 150},
+        { name: "売出価格", type: "text", width: 150 },
+        { name: "年式", type: "text", width: 100 },
+        { name: "走行距離", type: "text", width: 150 },
+        // { name: "ミッション", type: "select", items: db.mission, valueField: "Id", textField: "Name" },
+        { name: "オークション状況", type: "select", items: db.auction, valueField: "Id", textField: "Name", width: 200}
+      ],
+
+      multiselect: true,
+
+      beforeSelectRow:function(rowid, status, e){  //行が選択された直後に呼ばれる
+       console.log('onSelectRowが呼ばれました');
+       console.log(rowid);  //行番号
+       console.log(status);  //multiselect=true時、選択する場合はtrue、選択解除する場合はfalse
+       console.log(e);
+     }
+
     });
   });
 </script>
