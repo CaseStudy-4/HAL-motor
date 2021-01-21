@@ -20,28 +20,6 @@ router.use(bodyParser.urlencoded({
 }));
 
 /*
-*   database connection
-*/
-/*
-const connection = mysql.createConnection({
-  host: '127.0.0.1',
-  user: 'root',
-  password: '',
-  port: '3306',
-  database: 'halmotor'
-});
-connection.connect((error) => {
-	if(error){
-		console.log('Error!! mysql connection:' + error.stack);
-		return;
-	}
-	console.log('mysql connection success');
-});
-*/
-
-
-
-/*
 * 	login
 */
 let adminmail = 'admin@hal.ac.jp';
