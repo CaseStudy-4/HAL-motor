@@ -53,7 +53,7 @@ passport.deserializeUser(function(user, done) {
   done(null, username);
 });
 
-router.post('/admin/login', passport.authenticate('local'),function(req, res){
+router.post('/login', passport.authenticate('local'),function(req, res){
 	console.log('login!!');
 	res.status(200).send({'username' : username});
 });
