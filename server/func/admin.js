@@ -63,8 +63,6 @@ router.post('/login', passport.authenticate('local'),function(req, res){
 */
 router.use(bodyParser.json());
 router.post('/', async function(req,res) {
-	console.log('post request!!');
-	console.log(req.body);
 
 	let connection
 	try {
@@ -200,6 +198,7 @@ router.get('/Email/:e-mail', function(req, res) {
 *	[PUT]: Update
 *	param: adminID
 */
+/*
 router.put('/:adminID', function(req, res){
 	mysqlconnection.query(
 		'UPDATE employee_info SET  WHERE employee_id = ?', [req.params.adminID],
@@ -215,6 +214,7 @@ router.put('/:adminID', function(req, res){
 		}
 	)
 });
+*/
 
 /*
 *	[DELETE]: Delete
