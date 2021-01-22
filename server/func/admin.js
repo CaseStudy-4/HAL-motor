@@ -33,14 +33,16 @@ router.use(passport.initialize());
 router.use(session({ resave:false,saveUninitialized:false, secret: 'passport test' }));
 router.use(passport.session());
 
-passport.use(new LocalStrategy(
+passport.use("adminlogin", new LocalStrategy(
   function(username, password, done) {
-		if(username == testmail && password == testpass){
+
+		if(username == adminmail && password == adminpass){
 			return done(null, username);
 		}
     else {
 			console.log("login error")
-      return done(null, false, { message: 'ログインできませんでした' });
+      return done(null, false, { message: 'ログインできませんでしたー！！' });
+      // return done(null, false, { message: 'ログインできませんでした' });
 		}
   }
 ));
@@ -53,7 +55,7 @@ passport.deserializeUser(function(user, done) {
   done(null, username);
 });
 
-router.post('/login', passport.authenticate('local'),function(req, res){
+router.post('/login', passport.authenticate('adminlogin', { session: false }),function(req, res){
 	console.log('login!!');
 	res.status(200).send({'username' : username});
 });

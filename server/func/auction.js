@@ -31,8 +31,10 @@ router.use(session({ resave:false,saveUninitialized:false, secret: 'passport auc
 router.use(passport.session());
 
 var user_id;
-passport.use(new LocalStrategy(
+passport.use("auctionlogin", new LocalStrategy(
   async function(username, password, done) {
+
+		console.log('auction.js');
 
 		let connection
 		try {
@@ -72,9 +74,14 @@ passport.deserializeUser(function(user, done) {
   done(null, username);
 });
 
-router.post('/login', passport.authenticate('local'),function(req, res){
+router.post('/login', passport.authenticate('auctionlogin', { session: true }),function(req, res){
 	console.log('login!!');
 	res.status(200).send({'user_id' : user_id});
+	res.sendFile(__dirname + '../../hoge.ejs');
+});
+
+router.get('/login', function(req, res){
+	res.sendFile(__dirname + '../../login.ejs');
 });
 
 router.post('/', function(req, res){
@@ -158,10 +165,10 @@ router.get('/timer', function(req, res) {
 			for (let i = 0; i < results.length; i++) {
 				if(nowdate.getTime() <= results[i].auction_date.getTime()){
 					var addData =
-				{ 
+				{
 					auction_id : results[i].auction_id,
 					auction_name : results[i].auction_name,
-					auction_image : results[i].auction_image, 
+					auction_image : results[i].auction_image,
 					auction_date : results[i].auction_date,
 					exhibition_block : results[i].exhibition_block
 				}
