@@ -77,6 +77,66 @@ router.post('/login', passport.authenticate('local'),function(req, res){
 	res.status(200).send({'user_id' : user_id});
 });
 
+router.post('/', function(req, res){
+
+});
+
+router.get('/', function(req, res){
+	mysqlconnection.query(
+		'SELECT * FROM auction_info;',
+		(error, results) => {
+			if(error){
+				console.log('Error!!' + error.stack);
+				res.status(400).send({ msg: 'Error!!' });
+				return;
+			}
+			// console.log(results);
+
+			res.status(200).send(results);
+		}
+	)
+});
+
+router.get('/:auction_id', function(req, res){
+	let auctionID = parseInt(req.params.auction_id, 10);
+
+	mysqlconnection.query(
+		'SELECT * FROM auction_info WHERE auction_id = ?;', auctionID,
+		(error, results) => {
+			if(error){
+				console.log('Error!!' + error.stack);
+				res.status(400).send({ msg: 'Error!!' });
+				return;
+			}
+			res.status(200).send(results);
+		}
+	)
+});
+
+router.use(bodyParser.urlencoded({
+	extended: true
+}));
+router.use(bodyParser.json());
+router.put('/:auction_id', function(req, res){
+
+	let auctionID = parseInt(req.params.auction_id, 10);
+	let put = req.body;
+
+	mysqlconnection.query(
+		'UPDATE auction_info SET ? WHERE auction_id = ?;', [put, auctionID],
+		(error, results) => {
+			if(error){
+				console.log('Error!!' + error.stack);
+				res.status(400).send({ msg: 'Error!!' });
+				return;
+			}
+
+			res.status(200).send(results);
+		}
+	)
+});
+
+
 /* タイマー機能 
       GET /timer
       【リクエスト】
