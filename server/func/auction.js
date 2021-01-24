@@ -4,6 +4,10 @@ const app2 = require('../app2');
 const mysqlconnection = app2.connection;
 const cors = require('cors');
 const mysql2 = require('mysql2/promise');
+// const contenttype = require('contenttype');
+// const path = require('path');
+var path = require('path');
+
 
 const db_setting = {
 	host: '127.0.0.1',
@@ -33,8 +37,6 @@ router.use(passport.session());
 var user_id;
 passport.use("auctionlogin", new LocalStrategy(
   async function(username, password, done) {
-
-		console.log('auction.js');
 
 		let connection
 		try {
@@ -77,11 +79,11 @@ passport.deserializeUser(function(user, done) {
 router.post('/login', passport.authenticate('auctionlogin', { session: true }),function(req, res){
 	console.log('login!!');
 	res.status(200).send({'user_id' : user_id});
-	res.sendFile(__dirname + '../../hoge.ejs');
+	// res.sendFile(path.resolve('../view/Auction_Admission.html'));
 });
 
 router.get('/login', function(req, res){
-	res.sendFile(__dirname + '../../login.ejs');
+	res.sendFile(path.resolve('../view/Auction_Admission.html'));
 });
 
 router.post('/', async function(req, res){
@@ -123,6 +125,7 @@ router.get('/', function(req, res){
 	)
 });
 
+/*
 router.get('/:auction_id', function(req, res){
 	let auctionID = parseInt(req.params.auction_id, 10);
 
@@ -138,6 +141,7 @@ router.get('/:auction_id', function(req, res){
 		}
 	)
 });
+*/
 
 router.use(bodyParser.urlencoded({
 	extended: true
@@ -160,6 +164,44 @@ router.put('/:auction_id', function(req, res){
 			res.status(200).send(results);
 		}
 	)
+});
+
+router.get('/list',async function(req, res){
+	let connection
+	try {
+		connection = await mysql2.createConnection(db_setting);
+		await connection.beginTransaction();
+		let column = [
+			'auction_info.car_id',
+			'car.manufacturer_name',
+			'car.car_name',
+			'auction_info.auction_name',
+			'auction_info.auction_image',
+			'car.car_info'
+		];
+		const [row] = await connection.query('SELECT ?? FROM auction_info JOIN car ON auction_info.car_id = car.car_id;', [column]);
+		/*
+		for(let i = 0; i < row.length; i++){
+			if(row[0] != null){
+				result.push(row[0]);
+			}
+		}
+		*/
+		// let sendData = JSON.stringify(row);
+		res.status(200).json(row);
+	}catch(err){
+		await connection.rollback();
+		res.json({
+			status: "error",
+			error: "fail to uplord data"
+		})
+	}finally {
+		connection.end();
+		return
+	}
+
+
+
 });
 
 

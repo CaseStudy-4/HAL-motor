@@ -1,11 +1,12 @@
+let requestURL = 'http://localhost:9000/user'
+
 $("#regist_info").on("submit", function(event) {
     event.preventDefault();
     var send_data = {
-        name: $('#regist_info input[name="InputUserName"]').val(),
-        name: $('#regist_info input[name="InputMail"]').val(),
-        name: $('#regist_info input[name="InputPassword1"]').val(),
-        name: $('#regist_info input[name="InputPassword2"]').val(),
-        name: $('#regist_info input[name="zip21"]').val(),
+        user_pass: $('#regist_info input[name="InputUserName"]').val(),
+        user_mail: $('#regist_info input[name="InputMail"]').val(),
+        user_pass: $('#regist_info input[name="InputPassword1"]').val(),
+        zip_code: $('#regist_info input[name="zip21"]').val(),
         name: $('#regist_info input[name="zip22"]').val(),
         name: $('#regist_info input[name="adr21"]').val(),
         name: $('#regist_info input[name="InputTel"]').val(),

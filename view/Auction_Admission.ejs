@@ -1,10 +1,10 @@
-<!DOCTYPE html>
+<!--<!DOCTYPE html>-->
 <html lang="ja">
 <head>
-<!-- <link href="https://fonts.googleapis.com/css?family=Quicksand:300" rel="stylesheet"> -->
-<!-- <link rel="stylesheet" type="text/css" href="../css/Auction_Admission.css"> -->
-<!-- <link rel="stylesheet" type="text/css" href="../css/bootstrap-4.5.3-dist/css/bootstrap.min.css"> -->
-<!-- <script type="text/javascript" src="../js/jquery-3.5.1.min.js"></script> -->
+<link href="https://fonts.googleapis.com/css?family=Quicksand:300" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="../Auction_Admission.css">
+<link rel="stylesheet" type="text/css" href="../bootstrap-4.5.3-dist/css/bootstrap.min.css">
+<script type="text/javascript" src="jquery-3.5.1.min.js"></script>
 <meta charset="utf-8">
 <title>オークション入場画面</title>
 </head>
@@ -35,53 +35,29 @@
         <p class="p2">必要な情報を入力してください</p>
     </label>
 
-    <form action="" id="contact">
+    <form  action="/chat" method="post" id="contact">
         <div class="container">
-            <input type="text" name="username" placeholder="ユーザーID"><br>
+            <input type="text" name="email" placeholder="ユーザー名"><br>
             <input type="password" name="password" placeholder="パスワード"><br>
             <button id="submit" type="submit">
                 次へ
             </button>
         </div>
     </form>
-    <!-- jQuery -->
-		<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    
 </body>
 </html>
 <script>
-let requestURL = 'http://localhost:9000/auction/login'
 $(function() {
     $('.hamburger').click(function() {
         $(this).toggleClass('active');
+ 
         if ($(this).hasClass('active')) {
             $('.globalMenuSp').addClass('active');
         } else {
             $('.globalMenuSp').removeClass('active');
         }
-		});
-		
-		$('#contact').on('submit', function(e){
-			event.preventDefault();
-			// 通信実行
-			$.ajax({
-				data: $('#contact').serialize(),
-				type: 'POST',
-				url: requestURL,
-				headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-				contentType: 'application/x-www-form-urlencoded; charset=utf-8',
-				dataType: 'json',
-			})
-			.done( (data) => {
-				let res = JSON.stringify(data);
-        let obj = JSON.parse(res);
-        console.log(res);
-				// alert(res);
-			})
-			.fail( (data) => {
-				// let res = JSON.stringify(data);
-				console.log('ログインできませんでした');
-			});
-		});
+    });
 });
 
 
