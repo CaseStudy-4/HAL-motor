@@ -8,6 +8,13 @@ router.use(bodyParser.urlencoded({
 }));
 router.use(bodyParser.json());
 
+router.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
+
+
 /*
 *		post request
 */
@@ -241,7 +248,7 @@ router.get('/car', (req, res) => {
           Name : results[i].car_name,
           Maker : results[i].manufacturer_name,
           Bodytype : results[i].body_type,
-          Value : String(Math.floor(Number(results[i].car_info.split(',')[0])*1.1/10000)) + "万",
+          Value : String(Math.floor(Number(results[i].car_info.split(',')[0])*1.1/10000)) + "万円",
           Modelyear : results[i].car_info.split(',')[8] + "年" ,
           Mileage : "km",
           State : results[i].hold_status + "a"
