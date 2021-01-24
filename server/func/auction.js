@@ -84,8 +84,27 @@ router.get('/login', function(req, res){
 	res.sendFile(__dirname + '../../login.ejs');
 });
 
-router.post('/', function(req, res){
-
+router.post('/', async function(req, res){
+	let connection
+	try {
+		connection = await mysql2.createConnection(db_setting)
+		await connection.beginTransaction();
+		const [row2] = await connection.query('INSERT INTO auction_info set ?', req.body);
+		await connection.commit();
+		res.json({
+			status : "success",
+			msg: '登録完了'
+		});
+	}catch(err){
+		await connection.rollback();
+    res.json({
+      status: "error",
+      error: "fail to uplord data"
+    })
+	}finally {
+		connection.end();
+		return
+	}
 });
 
 router.get('/', function(req, res){
