@@ -1,16 +1,23 @@
-var express = require("express");
-var fs = require('fs');
+let express = require("express");
+let app = express();
+var path = require('path');
 const bodyParser = require('body-parser');
-const cors = require('cors');
 const mysql2 = require('mysql2/promise');
-var http = require('http');
-var server = http.createServer();
+var http = require('http').Server(app);
+const io = require('socket.io')(http);
 
-server.on('request', function(req, res) {
-  var stream = fs.createReadStream('test.html');
-  res.writeHead(200, {'Content-Type': 'text/html'});
-  stream.pipe(res);
+const PORT = process.env.PORT || 7000;
+
+app.get('/test', function(req,res){
+  res.sendFile(path.resolve('../../view/sockettest.html'));
 });
 
-var io = require('socket.io').listen(server);
-server.listen(8000);
+io.on('connection',function(socket){
+  socket.on('message',function(msg){
+      console.log('message: ' + msg);
+  });
+});
+
+http.listen(PORT, function(){
+  console.log('server listening. Port:' + PORT);
+});

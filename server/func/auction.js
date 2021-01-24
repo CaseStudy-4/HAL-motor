@@ -97,7 +97,7 @@ router.post('/', async function(req, res){
 		});
 	}catch(err){
 		await connection.rollback();
-    res.json({
+    res.stat(401).json({
       status: "error",
       error: "fail to uplord data"
     })
