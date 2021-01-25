@@ -101,12 +101,11 @@ router.post('/', (req, res) => {
     req.body.car_info.license_number + "," +
     req.body.car_info.model_designation_number + "," +
     req.body.car_info.category_classification_number ,
-    req.body.hold_status,
-    req.body.did_status
+    req.body.status,
   ];
 
 	mysqlconnection.query(
-		"INSERT INTO car (car_images,body_type,manufacturer_name,car_name,decorations,spec_info,evaluations,car_info,hold_status,did_status) VALUES (?,?,?,?,?,?,?,?,?,?);",values,
+		"INSERT INTO car (car_images,body_type,manufacturer_name,car_name,decorations,spec_info,evaluations,car_info,status) VALUES (?,?,?,?,?,?,?,?,?);",values,
 		(error, results,fields) => {
       if (error) {
         console.log('error: ' + error.stack);
@@ -221,8 +220,7 @@ router.get('/', (req, res) => {
             model_designation_number : results[i].car_info.split(',')[19],
             category_classification_number : results[i].car_info.split(',')[20]
           },
-          hold_status : results[i].hold_status,
-          did_status : results[i].did_status,
+          status : results[i].status,
         }
         results[i] = addData;
       }
@@ -248,10 +246,17 @@ router.get('/car', (req, res) => {
           Name : results[i].car_name,
           Maker : results[i].manufacturer_name,
           Bodytype : results[i].body_type,
+<<<<<<< HEAD
           Value : String(Math.floor(Number(results[i].car_info.split(',')[0])*1.1/10000)) + "万円",
           Modelyear : results[i].car_info.split(',')[8] + "年" ,
           Mileage : "km",
           State : results[i].hold_status + "a"
+=======
+          Value : String(Math.floor(Number(results[i].car_info.split(',')[0])*1.1/10000)) + "万",
+          Modelyear : results[i].car_info.split(',')[7] + "年" ,
+          Mileage : results[i].car_info.split(',')[8] + "km",
+          State : results[i].status 
+>>>>>>> origin/v1.0.1/server
         }
         results[i] = addData;
       }
@@ -364,8 +369,7 @@ router.get('/Category/:category', function(req, res) {
             model_designation_number : results[i].car_info.split(',')[19],
             category_classification_number : results[i].car_info.split(',')[20]
           },
-          hold_status : results[i].hold_status,
-          did_status : results[i].did_status,
+          status : results[i].status,
         }
         results[i] = addData;
       }
@@ -486,8 +490,7 @@ router.get('/Value/:value1/:value2', function(req, res)  {
             model_designation_number : results[i].car_info.split(',')[19],
             category_classification_number : results[i].car_info.split(',')[20]
           } ,
-          hold_status : results[i].hold_status,
-          did_status : results[i].did_status,
+          status : results[i].status,
         }
         results[i] = addData;
       }
@@ -589,8 +592,7 @@ router.get('/Value/:value1/:value2', function(req, res)  {
                 model_designation_number : results[i].car_info.model_designation_number,
                 category_classification_number : results[i].car_info.category_classification_number
               },
-              hold_status : results[i].hold_status,
-              did_status : results[i].did_status, 
+              status : results[i].status,
             }
             results1[ind] = addData;
             ind++;
@@ -690,8 +692,7 @@ router.get('/Value/:value1/:value2', function(req, res)  {
                 model_designation_number : results[i].car_info.model_designation_number,
                 category_classification_number : results[i].car_info.category_classification_number
               },
-              hold_status : results[i].hold_status,
-              did_status : results[i].did_status,
+              status : results[i].status,
             }
             results1[ind] = addData;
             ind++;
@@ -791,8 +792,7 @@ router.get('/Value/:value1/:value2', function(req, res)  {
                 model_designation_number : results[i].car_info.model_designation_number,
                 category_classification_number : results[i].car_info.category_classification_number
               },
-              hold_status : results[i].hold_status,
-              did_status : results[i].did_status,
+              status : results[i].status,
             }
             results1[ind] = addData;
             ind++;
