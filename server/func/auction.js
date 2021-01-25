@@ -18,6 +18,7 @@ const db_setting = {
 }
 
 router.use(cors({ origin: true, credentials: true }));
+
 router.use(bodyParser.urlencoded({
 	extended: true
 }));
@@ -175,11 +176,13 @@ router.get('/list',async function(req, res){
 			'auction_info.car_id',
 			'car.manufacturer_name',
 			'car.car_name',
+			'auction_info.auction_date',
 			'auction_info.auction_name',
 			'auction_info.auction_image',
 			'car.car_info'
 		];
-		const [row] = await connection.query('SELECT ?? FROM auction_info JOIN car ON auction_info.car_id = car.car_id;', [column]);
+
+		const [row] = await connection.query('SELECT ?? FROM auction_info JOIN car ON auction_info.car_id = car.car_id ORDER BY auction_info.auction_date ASC;', [column]);
 		/*
 		for(let i = 0; i < row.length; i++){
 			if(row[0] != null){
@@ -199,11 +202,7 @@ router.get('/list',async function(req, res){
 		connection.end();
 		return
 	}
-
-
-
 });
-
 
 /* タイマー機能 
       GET /timer
