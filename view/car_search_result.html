@@ -40,51 +40,11 @@
         </div>
     </div>
 
-    <div class="container">
+    <div id="container">
+			<!--
         <div class="row">
             <div class="col-sm-3">
-                <p>トヨタ</p>
-            </div>
-            <div class="col-sm-3">
-                <p>開催まであと4日</p>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-sm">
-                <h3>プリウス 1.8s</h3>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-sm">
-                <p>目玉！新型サンプルサンプルサンプル</p>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-sm-6">
-                <p><img src="images/sample.jpg" class="img-fluid" alt="carImage"></p>
-                <p>ワンオーナー</p>
-            </div>
-            <div class="col-sm-6">
-                <p>現在の価格<br>230万円</p>
-                <ul>
-                    <li>年式:<span>2020年</span></li>
-                    <li>車検:<span>2年6月</span></li>
-                    <li>修復:<span>なし</span></li>
-                    <li>整備:<span>整備付</span></li>
-                    <li>走行:<span>20km</span></li>
-                    <li>キズ:<span>なし</span></li>
-                </ul>
-            </div>
-        </div>
-        <div class="row">
-            <button type="button" class="btn btn-warning">オークションに参加する</button>
-        </div>
-    </div>
-
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-3">
-                <p>トヨタ</p>
+                <p id="maker">トヨタ</p>
             </div>
             <div class="col-sm-3">
                 <p>開催まであと4日</p>
@@ -92,120 +52,96 @@
         </div>
         <div class="row">
             <div class="col-sm">
-                <h3>プリウス 1.8s</h3>
+                <h3 id="name">プリウス 1.8s</h3>
             </div>
         </div>
         <div class="row">
             <div class="col-sm">
-                <p>目玉！新型サンプルサンプルサンプル</p>
+                <p id="title">目玉！新型サンプルサンプルサンプル</p>
             </div>
         </div>
         <div class="row">
+						<input type="hidden" id="id" value="1" />
             <div class="col-sm-6">
                 <p><img src="images/sample.jpg" class="img-fluid" alt="carImage"></p>
                 <p>ワンオーナー</p>
             </div>
             <div class="col-sm-6">
-                <p>現在の価格<br>230万円</p>
+                <p>現在の価格<br><span id="value">230</span>万円</p>
                 <ul>
-                    <li>年式:<span>2020年</span></li>
-                    <li>車検:<span>2年6月</span></li>
-                    <li>修復:<span>なし</span></li>
-                    <li>整備:<span>整備付</span></li>
-                    <li>走行:<span>20km</span></li>
-                    <li>キズ:<span>なし</span></li>
+                    <li>年式:<span id="madelyear">2020</span>年</li>
+                    <li>車検:<span id="inspection">2年6月</span></li>
+                    <li>修復:<span id="repair">なし</span></li>
+                    <li>整備:<span id="maintenance">整備付</span></li>
+                    <li>走行:<span id="mileage">20</span>km</li>
+                    <li>キズ:<span id="scratch">なし</span></li>
                 </ul>
             </div>
         </div>
         <div class="row">
             <button type="button" class="btn btn-warning">オークションに参加する</button>
-        </div>
-    </div>
+				</div>
+			-->
+		</div>
 
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-3">
-                <p>トヨタ</p>
-            </div>
-            <div class="col-sm-3">
-                <p>開催まであと4日</p>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-sm">
-                <h3>プリウス 1.8s</h3>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-sm">
-                <p>目玉！新型サンプルサンプルサンプル</p>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-sm-6">
-                <p><img src="images/sample.jpg" class="img-fluid" alt="carImage"></p>
-                <p>ワンオーナー</p>
-            </div>
-            <div class="col-sm-6">
-                <p>現在の価格<br>230万円</p>
-                <ul>
-                    <li>年式:<span>2020年</span></li>
-                    <li>車検:<span>2年6月</span></li>
-                    <li>修復:<span>なし</span></li>
-                    <li>整備:<span>整備付</span></li>
-                    <li>走行:<span>20km</span></li>
-                    <li>キズ:<span>なし</span></li>
-                </ul>
-            </div>
-        </div>
-        <div class="row">
-            <button type="button" class="btn btn-warning">オークションに参加する</button>
-        </div>
-    </div>
+    
+    
+    <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script> -->
+    <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js" integrity="sha384-LtrjvnR4Twt/qOuYxE721u19sVFLVSA4hf/rRt6PrZTmiPltdZcI7q7PXQBYTKyf" crossorigin="anonymous"></script> -->
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script>
+			let requestURL = 'http://localhost:9000/auction/list';
+			$(function(){
+				$.getJSON(
+					requestURL,
+					function(json){
+						console.log(json);
+						addhtml(json);
+					}
+				)
+				
+				function addhtml(json){
 
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-3">
-                <p>トヨタ</p>
-            </div>
-            <div class="col-sm-3">
-                <p>開催まであと4日</p>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-sm">
-                <h3>プリウス 1.8s</h3>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-sm">
-                <p>目玉！新型サンプルサンプルサンプル</p>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-sm-6">
-                <p><img src="images/sample.jpg" class="img-fluid" alt="carImage"></p>
-                <p>ワンオーナー</p>
-            </div>
-            <div class="col-sm-6">
-                <p>現在の価格<br>230万円</p>
-                <ul>
-                    <li>年式:<span>2020年</span></li>
-                    <li>車検:<span>2年6月</span></li>
-                    <li>修復:<span>なし</span></li>
-                    <li>整備:<span>整備付</span></li>
-                    <li>走行:<span>20km</span></li>
-                    <li>キズ:<span>なし</span></li>
-                </ul>
-            </div>
-        </div>
-        <div class="row">
-            <button type="button" class="btn btn-warning">オークションに参加する</button>
-        </div>
-    </div>
+					for(let i = 0; i < json.length; i++){
+						$(
+							'<div class="box">' +
+							'<div class="row">' +
+							'<div class="col-sm-3"><p id="maker"></p></div>' +
+							'<div class="col-sm-3"><p>開催まであと4日</p></div>' +
+							'</div>' +
+							'<div class="row">' +
+							'<div class="col-sm"><h3 id="name"></h3></div>' +
+							'</div>' +
+							'<div class="row"><div class="col-sm"><p id="title"></p></div></div>' +
+							'<div class="row">' +
+							'<div class="col-sm-6">' +
+							'<p><img src="images/sample.jpg" class="img-fluid" alt="carImage"></p>' +
+							'<p>ワンオーナー</p>' +
+							'</div>' +
+							'<div class="col-sm-6">' +
+							'<p>現在の価格<br><span id="value">230</span>万円</p>' +
+							'<ul>' +
+							'<li>年式:<span id="modelyear">2020</span>年</li>' +
+							'<li>車検:<span id="inspection">2年6月</span></li>' +
+							'<li>修復:<span id="repair">なし</span></li>' +
+							'<li>整備:<span id="maintenance">整備付</span></li>' +
+							'<li>走行:<span id="mileage">20</span>km</li>' +
+							'<li>キズ:<span id="scratch">なし</span></li>' +
+							'</ul>' +
+							'</div>' +
+							'</div>' +
+							'<div class="row"><button type="button" class="btn btn-warning">オークションに参加する</button></div>',
+							'</div>'
+						)
+						.find('#maker').text(json[i].manufacturer_name).end()
+						.find('#name').text(json[i].car_name).end()
+						.find('#title').text(json[i].auction_name).end()
+						.appendTo("#container");
+					}
+				}
 
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js" integrity="sha384-LtrjvnR4Twt/qOuYxE721u19sVFLVSA4hf/rRt6PrZTmiPltdZcI7q7PXQBYTKyf" crossorigin="anonymous"></script>
+			});
+    </script>
 
 </body>
 
