@@ -176,18 +176,13 @@ router.get('/list',async function(req, res){
 			'auction_info.car_id',
 			'car.manufacturer_name',
 			'car.car_name',
-<<<<<<< HEAD
 			'auction_info.auction_date',
-=======
->>>>>>> origin/v1.0.1/server
 			'auction_info.auction_name',
 			'auction_info.auction_image',
 			'car.car_info'
 		];
-<<<<<<< HEAD
+
 		const [row] = await connection.query('SELECT ?? FROM auction_info JOIN car ON auction_info.car_id = car.car_id ORDER BY auction_info.auction_date ASC;', [column]);
-=======
-		const [row] = await connection.query('SELECT ?? FROM auction_info JOIN car ON auction_info.car_id = car.car_id;', [column]);
 		/*
 		for(let i = 0; i < row.length; i++){
 			if(row[0] != null){
@@ -196,7 +191,6 @@ router.get('/list',async function(req, res){
 		}
 		*/
 		// let sendData = JSON.stringify(row);
->>>>>>> origin/v1.0.1/server
 		res.status(200).json(row);
 	}catch(err){
 		await connection.rollback();
@@ -208,18 +202,7 @@ router.get('/list',async function(req, res){
 		connection.end();
 		return
 	}
-<<<<<<< HEAD
 });
-
-
-
-=======
-
-
-
-});
-
->>>>>>> origin/v1.0.1/server
 
 /* タイマー機能 
       GET /timer
