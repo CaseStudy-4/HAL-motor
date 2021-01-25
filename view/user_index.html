@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="car_search_result.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <title>車両検索結果画面</title>
+    <style type="text/css">
+        .carImages{
+            display: flex;
+            width: 80%;
+            justify-content: center;
+            margin: auto;
+        }
+        .buttons{
+            text-align: center;
+            margin-left:10px;
+        }
+        .img{
+            width: 50%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>HALMOTOR</h1>
+    </header>
+    <div class="col-sm-12">
+        <p><img src="images/main.jpg" class="img-fluid" alt="mainImage"></p>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm">
+                <form id="word">
+                    <h2>車両検索</h2>
+                    <div class="form-group">
+                        <label for="InputWord">フリーワード</label>
+                        <input type="word" class="form-control" id="InputWord" placeholder="検索ワードを入力してください">
+                    </div>
+                    <button type="submit" class="btn btn-primary" >検索</button>
+                </form>
+            </div>
+        </div>
+        <div class="row">
+             <div class="col-sm">
+                <label for="InputWord">カテゴリ</label>
+                <div class="buttons">
+                    <a href="" class="btn btn_flat"><span>メーカー</span></a><a href="" class="btn btn_flat details"><span>ボディタイプ</span></a><a href="" class="btn btn_flat details"><span>複数条件</span></a>
+                </div>
+                <div class="carImages">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <p><img src="images/maker1.jpg" class="img-fluid img" alt="maker1"></p>
+                        </div>
+                        <div class="col-sm-4">
+                            <p><img src="images/maker2.jpg" class="img-fluid img" alt="maker2"></p>
+                        </div>
+                        <div class="col-sm-4">
+                            <p><img src="images/maker3.jpg" class="img-fluid img" alt="maker3"></p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <p><img src="images/maker4.jpg" class="img-fluid img" alt="maker4"></p>
+                        </div>
+                        <div class="col-sm-4">
+                            <p><img src="images/maker5.jpg" class="img-fluid img" alt="maker5"></p>
+                        </div>
+                        <div class="col-sm-4">
+                            <p><img src="images/maker6.jpg" class="img-fluid img" alt="maker6"></p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <p><img src="images/maker7.jpg" class="img-fluid img" alt="maker7"></p>
+                        </div>
+                        <div class="col-sm-4">
+                            <p><img src="images/maker8.jpg" class="img-fluid img" alt="maker8"></p>
+                        </div>
+                        <div class="col-sm-4">
+                            <p><img src="images/maker9.jpg" class="img-fluid img" alt="maker9"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm">
+                <form id="word">
+                    <label for="InputWord">価格</label>
+                     <div class="row">
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <input type="word" class="form-control" id="InputWord1" placeholder="下限">
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <p>〜</p>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <input type="word" class="form-control" id="InputWord2" placeholder="上限">
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary" id="submit">検索</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js" integrity="sha384-LtrjvnR4Twt/qOuYxE721u19sVFLVSA4hf/rRt6PrZTmiPltdZcI7q7PXQBYTKyf" crossorigin="anonymous"></script>
+    <script src="user_index.js"></script>
+
+</body>
+</html>

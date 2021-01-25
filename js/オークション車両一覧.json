@@ -1,0 +1,45 @@
+[
+  {
+    "id" : "1",
+    "maker" : "トヨタ",
+    "name" : "プリウス",
+    "title" : "目玉！！新型プリウスを驚きの価格で手に入れるチャンス！！",
+    "image" : "image.jpg",
+    "value" : "220",
+    "modelyear" : "2020",
+    "inspection" : "02/6",
+    "mileage" : "20",
+    "repair" : "なし",
+    "maintenance" : "整備付",
+    "scratch" : "なし"
+  },
+  {
+    "id" : "2",
+    "maker" : "トヨタ",
+    "name" : "プリウス",
+    "title" : "目玉！！新型プリウスを驚きの価格で手に入れるチャンス！！",
+    "image" : "image.jpg",
+    "value" : "220",
+    "modelyear" : "2020",
+    "inspection" : "02/6",
+    "mileage" : "20",
+    "repair" : "なし",
+    "maintenance" : "整備付",
+    "scratch" : "なし"
+  },
+  {
+    "id" : "3",
+    "maker" : "トヨタ",
+    "name" : "プリウス",
+    "title" : "目玉！！新型プリウスを驚きの価格で手に入れるチャンス！！",
+    "image" : "image.jpg",
+    "value" : "220",
+    "modelyear" : "2020",
+    "inspection" : "02/6",
+    "mileage" : "20",
+    "repair" : "なし",
+    "maintenance" : "整備付",
+    "scratch" : "なし"
+  }
+
+]

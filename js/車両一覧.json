@@ -1,0 +1,10 @@
+{
+    "Id" : 12345,
+    "Name": "プリウス",
+    "Maker": 1,
+    "Bodytype" : "セダン",
+    "Value": "200万円",
+    "Modelyear": "2020年",
+    "Mileage" : "200,000km",
+    "State" : 2
+}
